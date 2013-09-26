@@ -1,0 +1,82 @@
+<br>
+<div class="row panel text-center">
+  <div class="large-10 large-centered columns">
+    <h1>Use a Creative Commons License</h1>
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="large-8 large-offset-2 columns">
+    <p>Using a Creative Commons license on your work is easy! Simply copy and paste the text below into your documents:</p>
+<!--    <ol>
+      <li>Learn about our <a href="http://staging.creativecommons.org/licenses/">licenses</a> and things to <a href="http://wiki.creativecommons.org/Before_Licensing">consider before licensing</a></li>
+      <li>Simply copy and paste the text below into your documents.</li>
+    </ol> -->
+  </div>
+  <div class="large-2 columns">
+    <a href="#" class="button small secondary radius" data-reveal-id="jurisdiction-dialog"><img width="60px" src="/assets/World.svg">&nbsp;Jurisdiction</a>
+  </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="large-7 large-centered columns">
+    <div class="large-9 columns">
+      <blockquote id="text-attr" ng-class="!format.print && 'hide'">
+        This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
+      </blockquote>
+      <blockquote id="web-attr" ng-class="!format.web && 'hide'">
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      </blockquote>
+    </div>
+    <div class="large-3 columns">
+      <a href="" class="button tiny radius">Copy {{format.copyStr}}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <div class="row">
+      <div class="large-6 columns">
+        <dl id="format-selector" class="sub-nav">
+          <dt>View for:</dt>
+          <dd ng-class="format.print && 'active'">
+            <a href="" ng-click="printFormat()">Print</a>
+          </dd>
+          <dd ng-class="format.web && 'active'">
+            <a href="" ng-click="webFormat()">Web</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="large-6 columns text-right">
+        <a href="#" class="button small radius" data-reveal-id="restrictions-dialog">Change Restrictions</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<panel>
+</panel>
+<div id="jurisdiction-dialog" class="reveal-modal">
+  <h2>Jurisdiction</h2>
+  <p>A jurisdiction is ... blah blah</p>
+  <p>and a grid/list to choose from</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="restrictions-dialog" class="reveal-modal">
+  <h2>License Restrictions</h2>
+  <p>Choose between CC0, BY-NC, etc.</p>
+  <ul>
+    <li>Waive all rights (place this work in the public domain)</li>
+    <li>Allow commercial uses</li>
+    <li>Allow derived works</li>
+    <li>Require derived works to use the same license</li>
+  </ul>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<script>
+//  $('#add-work-details-dialog').foundation('reveal', 'open');
+</script>
