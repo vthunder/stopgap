@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('foobarApp')
-  .controller('MainCtrl', function ($scope, $location) {
+  .controller('MainCtrl', function ($scope) {
     $scope.format = { print: true, copyStr: 'Text' };
     $scope.printFormat = function() {
       $scope.format = { print: true, copyStr: 'Text' };
