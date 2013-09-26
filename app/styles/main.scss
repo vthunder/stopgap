@@ -1,0 +1,16 @@
+// Zurb Foundation
+@import "./foundation-config.scss";
+@import "foundation/scss/normalize.scss";
+@import "foundation/scss/foundation.scss";
+
+// Font Awesome
+$fontAwesomePath: "fonts";
+@import "./font-awesome.scss";
+
+#format-selector {
+  margin-bottom: 0.25em;
+}
+
+.hide {
+  display: none;
+}

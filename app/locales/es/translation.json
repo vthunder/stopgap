@@ -1,0 +1,17 @@
+{
+  "A Fun Site": "Un Sitio Divertido",
+  "Choose a thing:": "Escoge una cosa:",
+  "Here's a random thing:": "Aquí tienes una cosa",
+  "food": {
+    "burrito": "burrito",
+    "burger": "hamburguesa",
+    "creme anglaise": "crema inglesa",
+    "eclair": "eclair",
+    "ice cream": "helado",
+    "pho": "pho",
+    "taco": "taco",
+    "sushi": "sushi",
+    "watermelon": "sandía",
+    "yakitori": "pollo a la brasa"
+  }
+}
