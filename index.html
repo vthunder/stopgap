@@ -9,7 +9,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="styles/42764ef8.main.css">
+    <link rel="stylesheet" href="styles/d6597a3f.main.css">
   </head>
   <body ng-app="foobarApp">
     <!--[if lt IE 7]>
@@ -25,12 +25,20 @@
 
     <!-- Add your site or application content here -->
     <div class="wrapper">
+      <div class="header">
+        <h1>Contribute to the Commons</h1>
+      </div>
       <div class="container" ng-view=""></div>
       <div></div> <!-- used to make sure footer doesn't overlap content -->
     </div>
-
-    <div class="footer">
-      <h6 class="subheader">Brought to you with &lt;3 by <a href="https://creativecommons.org/">Creative Commons</a></h6>
+    <div class="row footer"> <!-- must be outside of wrapper -->
+      <div class="small-6 columns">
+        <br>
+        <h6 class="subheader">Brought to you with &lt;3 by <a href="//creativecommons.org/">Creative Commons</a></h6>
+      </div>
+      <div class="small-3 small-offset-3 columns">
+        <a id="worldbutton" href="#" class="button small secondary radius right" data-reveal-id="jurisdiction-dialog"><img width="60px" src="assets/World.svg"><br>Other Licenses</a>
+      </div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -51,6 +59,6 @@
     <script src="bower_components/foundation/js/foundation/foundation.js"></script>
     <script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
 
-    <script src="scripts/d2092bf2.scripts.js"></script>
+    <script src="scripts/7d385552.scripts.js"></script>
   </body>
 </html>
