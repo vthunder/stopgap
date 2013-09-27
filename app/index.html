@@ -27,12 +27,20 @@
 
     <!-- Add your site or application content here -->
     <div class="wrapper">
+      <div class="header">
+        <h1>Contribute to the Commons</h1>
+      </div>
       <div class="container" ng-view=""></div>
       <div></div> <!-- used to make sure footer doesn't overlap content -->
     </div>
-
-    <div class="footer">
-      <h6 class="subheader">Brought to you with &lt;3 by <a href="https://creativecommons.org/">Creative Commons</a></h6>
+    <div class="row footer"> <!-- must be outside of wrapper -->
+      <div class="small-6 columns">
+        <br />
+        <h6 class="subheader">Brought to you with &lt;3 by <a href="//creativecommons.org/">Creative Commons</a></h6>
+      </div>
+      <div class="small-3 small-offset-3 columns">
+        <a id="worldbutton" href="#" class="button small secondary radius right" data-reveal-id="jurisdiction-dialog"><img width="60px" src="assets/World.svg"><br />Other Licenses</a>
+      </div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

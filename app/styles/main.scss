@@ -7,6 +7,9 @@
 $fontAwesomePath: "fonts";
 @import "./font-awesome.scss";
 
+// Compass helpers
+@import "compass/css3";
+
 $cc-green: shade(#fff, 5%); //#98C807; omg my eyes hurt
 $header-text-color: black;
 $footer-text-color: $header-text-color;
@@ -23,7 +26,7 @@ $footer-text-color: $header-text-color;
   }
 }
 
-$footer-height: 4em;
+$footer-height: 5em;
 html, body { height: 100%; }
 .wrapper {
   min-height: 100%;
@@ -37,10 +40,20 @@ html, body { height: 100%; }
   clear: both;
   color:white;
   height: $footer-height;
-  & > h6 {
+  padding: 0;
+  padding-top: 0.5em;
+  & h6 {
     color: $footer-text-color;
     text-align: center;
   }
+}
+
+#worldbutton {
+  margin-bottom: 0;
+}
+
+#terms-button {
+  margin-bottom: 0;
 }
 
 .header-number {
@@ -53,37 +66,29 @@ html, body { height: 100%; }
 }
 
 $copybox-bg: shade(#fff, 5%);
+$copybox-border: shade(#fff, 25%);
 $copybox-inactive-tab-bg: shade(#fff, 2%);
 
 .copybox {
+  @include border-radius(0.2em);
   background-color: $copybox-bg;
-  border: 1px solid black;
+  border: 1px solid $copybox-border;
+  padding-bottom: 0;
+}
+.copybox-tabs {
+  height: 1em;
+  margin: 0.53em;
 }
 .copybox-tab {
+  @include border-top-radius(0.5em);
   background-color: $copybox-inactive-tab-bg;
-  border: 1px solid black;
+  border: 1px solid $copybox-border;
   color: shade(#fff, 65%);
+  float: left;
+  width: 5em;
+  padding: 0.25em;
 }
 .copybox-tab.active {
   background-color: $copybox-bg;
   border-bottom: 1px solid $copybox-bg;
-}
-
-hr {
-  .dotted {
-    height:14px; /* specify a height for this hr */
-    overflow:hidden;
-    :after {
-      content:".......................................................................";
-      letter-spacing: 4px; /* Use letter-spacing to increase space between dots*/
-    }
-  }
-  .vertical {
-    rotation: 90;
-  }
-}
-
-
-.left-square {
-  border-right: 1px solid lightgray;
 }
