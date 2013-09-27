@@ -92,3 +92,8 @@ $copybox-inactive-tab-bg: shade(#fff, 2%);
   background-color: $copybox-bg;
   border-bottom: 1px solid $copybox-bg;
 }
+
+.copybox .attrib {
+  @include border-radius(0.2em);
+  background-color: shade(#fff, 2%);
+}
