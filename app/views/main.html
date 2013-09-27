@@ -24,27 +24,27 @@
 <br />
 <div class="row">
   <div class="large-10 large-centered columns">
-    <h4><span class="header-number">2</span><span class="subheader">Choose specific <a href="" class="button tiny radius" data-reveal-id="restrictions-dialog">license restrictions</a> that work for you.</span></h4>
+    <h4><span class="header-number">2</span><span class="subheader">Choose specific <a href="" class="button tiny radius" data-reveal-id="restrictions-dialog">license terms</a> that work for you.</span></h4>
   </div>
 </div>
 
 <div class="row">
   <div class="large-10 large-centered columns">
-    <h4><span class="header-number">3</span><span class="subheader">Copy and paste the text below into your documents</span></h4>
+    <h4><span class="header-number">3</span><span class="subheader">Copy and paste from the box below into your documents:</span></h4>
   </div>
 </div>
 
 <div class="row">
   <div class="large-6 large-centered columns">
-    <span class="label" ng-click="format='Text'"
-          ng-class="format != 'Text' && 'secondary'">Text</span>
-    <span class="label" ng-click="format='HTML'"
-          ng-class="format != 'HTML' && 'secondary'">HTML</span>
-    <div class="panel" id="text-attr" ng-class="format != 'Text' && 'hide'">
-      This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
-    </div>
-    <div class="panel" id="web-attr" ng-class="format != 'HTML' && 'hide'">
+    <span class="label copybox-tab" ng-click="format='HTML'"
+          ng-class="format == 'HTML' && 'active'">HTML</span>
+    <span class="label copybox-tab" ng-click="format='Text'"
+          ng-class="format == 'Text' && 'active'">Text</span>
+    <div class="panel copybox" id="web-attr" ng-class="format != 'HTML' && 'hide'">
       <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+    </div>
+    <div class="panel copybox" id="text-attr" ng-class="format != 'Text' && 'hide'">
+      This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
     </div>
   </div>
 </div>

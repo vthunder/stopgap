@@ -2,6 +2,6 @@
 
 angular.module('foobarApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.format = 'Text';
+    $scope.format = 'HTML';
   });
 

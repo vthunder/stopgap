@@ -7,7 +7,7 @@
 $fontAwesomePath: "fonts";
 @import "./font-awesome.scss";
 
-$cc-green: fade(#fff, 5%); //#98C807; omg my eyes hurt
+$cc-green: shade(#fff, 5%); //#98C807; omg my eyes hurt
 $header-text-color: black;
 $footer-text-color: $header-text-color;
 
@@ -23,20 +23,20 @@ $footer-text-color: $header-text-color;
   }
 }
 
-$footer-height: 4em; // Set to however many lines of text are in footer. Not dynamic.
+$footer-height: 4em;
 html, body { height: 100%; }
-.container {
+.wrapper {
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto ($footer-height * -1);
+  margin: 0 auto (-1 * $footer-height);
 }
-.container > *:last-child {
-  padding-bottom: $footer-height;
+.wrapper > *:last-child {
+  height: $footer-height;
 }
 .footer { @include grid-row; @include panel;
-  height: $footer-height;
   background-color: $cc-green;
+  clear: both;
+  color:white;
+  height: $footer-height;
   & > h6 {
     color: $footer-text-color;
     text-align: center;
@@ -45,11 +45,28 @@ html, body { height: 100%; }
 
 .header-number {
   @include border-radius(1em);
-  background-color: gray;
+  background-color: shade(#fff, 30%);
   color: white;
   font-size: 1.5em;
   margin: 0.25em;
   padding: 0.15em 0.5em;
+}
+
+$copybox-bg: shade(#fff, 5%);
+$copybox-inactive-tab-bg: shade(#fff, 2%);
+
+.copybox {
+  background-color: $copybox-bg;
+  border: 1px solid black;
+}
+.copybox-tab {
+  background-color: $copybox-inactive-tab-bg;
+  border: 1px solid black;
+  color: shade(#fff, 65%);
+}
+.copybox-tab.active {
+  background-color: $copybox-bg;
+  border-bottom: 1px solid $copybox-bg;
 }
 
 hr {
