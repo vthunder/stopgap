@@ -1,58 +1,54 @@
-<br>
-<div class="row panel text-center">
-  <div class="large-10 large-centered columns">
-    <h1>Use a Creative Commons License</h1>
-  </div>
+<div class="header">
+  <h1>Contribute to the Commons</h1>
 </div>
 
-<br>
 <div class="row">
-  <div class="large-8 large-offset-2 columns">
-    <p>Using a Creative Commons license on your work is easy! Simply copy and paste the text below into your documents:</p>
+  <div class="large-9 columns">
+    <h4 class="subheader">Using a Creative Commons license on your work is easy! Just follow these steps:</h4><br>
 <!--    <ol>
       <li>Learn about our <a href="http://staging.creativecommons.org/licenses/">licenses</a> and things to <a href="http://wiki.creativecommons.org/Before_Licensing">consider before licensing</a></li>
       <li>Simply copy and paste the text below into your documents.</li>
     </ol> -->
   </div>
-  <div class="large-2 columns">
-    <a href="#" class="button small secondary radius" data-reveal-id="jurisdiction-dialog"><img width="60px" src="assets/World.svg">&nbsp;Jurisdiction</a>
+  <div class="large-2 columns text-right">
+    <a href="#" class="button small secondary radius" data-reveal-id="jurisdiction-dialog"><img width="60px" src="assets/World.svg"><br>Other Licenses</a>
   </div>
 </div>
-<br><br>
+
 <div class="row">
-  <div class="large-7 large-centered columns">
-    <div class="large-9 columns">
-      <blockquote id="text-attr" ng-class="!format.print && 'hide'">
-        This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
-      </blockquote>
-      <blockquote id="web-attr" ng-class="!format.web && 'hide'">
-        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
-      </blockquote>
-    </div>
-    <div class="large-3 columns">
-      <a href="" class="button tiny radius">Copy {{format.copyStr}}</a>
-    </div>
+  <div class="large-10 large-centered columns">
+    <h4><span class="header-number">1</span><span class="subheader">
+        <a href="//creativecommons.org/licenses/" target="_blank">Learn</a> about our licenses so you understand how they work.</span></h4>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="large-10 large-centered columns">
+    <h4><span class="header-number">2</span><span class="subheader">Choose specific <a href="" class="button tiny radius" data-reveal-id="restrictions-dialog">license restrictions</a> that work for you.</span></h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-10 large-centered columns">
+    <h4><span class="header-number">3</span><span class="subheader">Copy and paste the text below into your documents</span></h4>
   </div>
 </div>
 
 <div class="row">
   <div class="large-6 large-centered columns">
-    <div class="row">
-      <div class="large-6 columns">
-        <dl id="format-selector" class="sub-nav">
-          <dt>View for:</dt>
-          <dd ng-class="format.print && 'active'">
-            <a href="" ng-click="printFormat()">Print</a>
-          </dd>
-          <dd ng-class="format.web && 'active'">
-            <a href="" ng-click="webFormat()">Web</a>
-          </dd>
-        </dl>
-      </div>
-      <div class="large-6 columns text-right">
-        <a href="#" class="button small radius" data-reveal-id="restrictions-dialog">Change Restrictions</a>
-      </div>
+    <span class="label" ng-click="format='Text'" ng-class="format != 'Text' && 'secondary'">Text</span>
+    <span class="label" ng-click="format='HTML'" ng-class="format != 'HTML' && 'secondary'">HTML</span>
+    <div class="panel" id="text-attr" ng-class="format != 'Text' && 'hide'">
+      This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
     </div>
+    <div class="panel" id="web-attr" ng-class="format != 'HTML' && 'hide'">
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="large-7 large-centered columns text-center">
+    <a href="" class="button radius">Copy {{format}}</a>
   </div>
 </div>
 
