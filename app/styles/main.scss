@@ -7,25 +7,66 @@
 $fontAwesomePath: "fonts";
 @import "./font-awesome.scss";
 
-#format-selector {
-  margin-bottom: 0.25em;
-}
+$cc-green: fade(#fff, 5%); //#98C807; omg my eyes hurt
+$header-text-color: black;
+$footer-text-color: $header-text-color;
 
 .hide {
   display: none;
 }
 
+.header { @include grid-row; @include panel;
+  background-color: $cc-green;
+  & > h1 {
+    color: $header-text-color;
+    text-align: center;
+  }
+}
+
 $footer-height: 4em; // Set to however many lines of text are in footer. Not dynamic.
 html, body { height: 100%; }
 .container {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto ($footer-height * -1);
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto ($footer-height * -1);
 }
 .container > *:last-child {
-    padding-bottom: $footer-height;
+  padding-bottom: $footer-height;
 }
-#footer {
-    height: $footer-height;
+.footer { @include grid-row; @include panel;
+  height: $footer-height;
+  background-color: $cc-green;
+  & > h6 {
+    color: $footer-text-color;
+    text-align: center;
+  }
+}
+
+.header-number {
+  @include border-radius(1em);
+  background-color: gray;
+  color: white;
+  font-size: 1.5em;
+  margin: 0.25em;
+  padding: 0.15em 0.5em;
+}
+
+hr {
+  .dotted {
+    height:14px; /* specify a height for this hr */
+    overflow:hidden;
+    :after {
+      content:".......................................................................";
+      letter-spacing: 4px; /* Use letter-spacing to increase space between dots*/
+    }
+  }
+  .vertical {
+    rotation: 90;
+  }
+}
+
+
+.left-square {
+  border-right: 1px solid lightgray;
 }

@@ -26,4 +26,5 @@ angular.module('foobarApp', ['jm.i18next'])
 
 $(document).ready(function() {
   $(document).foundation();
+  
 });
