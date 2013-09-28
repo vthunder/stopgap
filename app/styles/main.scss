@@ -36,7 +36,9 @@ html, body { height: 100%; }
   height: $footer-height;
 }
 .footer { @include grid-row; @include panel;
+  @include background-image(linear-gradient(top, white, shade(#fff, 25%)));
   background-color: $cc-green;
+  border: none;
   clear: both;
   color:white;
   height: $footer-height;
@@ -58,7 +60,7 @@ html, body { height: 100%; }
 
 .header-number {
   @include border-radius(50%);
-  background-color: shade(#fff, 30%);
+  background-color: shade(#fff, 20%);
   color: white;
   float: left;
   font-size: 1.5em;
