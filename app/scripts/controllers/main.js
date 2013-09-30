@@ -1,4 +1,4 @@
-/* global $ */
+/* global $, ZeroClipboard */
 
 'use strict';
 
@@ -36,5 +36,15 @@ angular.module('foobarApp')
     $scope.closeTermsDialog = function() {
       $('#terms-dialog').foundation('reveal', 'close');
     };
+
+    var clip = new ZeroClipboard($("#copy-button"),
+                                 {moviePath: "/bower_components/zeroclipboard/ZeroClipboard.swf"});
+    clip.on('dataRequested', function (client) {
+      if ($scope.format == 'HTML') {
+        client.setText($('#web-attr').html());
+      } else {
+        client.setText($('#text-attr').html());
+      }
+    });
   });
 
