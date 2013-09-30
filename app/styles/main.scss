@@ -102,6 +102,9 @@ $copybox-inactive-tab-bg: shade(#fff, 2%);
   background-color: shade(#fff, 2%);
 }
 
+.zeroclipboard-is-hover { @extend .button:hover; }
+.zeroclipboard-is-active { @extend .button:active; }
+
 #terms-dialog li .button {
   height: 3.5em;
 }
