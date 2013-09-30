@@ -39,7 +39,7 @@ angular.module('foobarApp')
 
     var clip = new ZeroClipboard(
       $('#copy-button'),
-      { moviePath: '/bower_components/zeroclipboard/ZeroClipboard.swf' });
+      { moviePath: 'bower_components/zeroclipboard/ZeroClipboard.swf' });
     clip.on('dataRequested', function (client) {
       if ($scope.format === 'HTML') {
         client.setText($('#web-attr').html());
