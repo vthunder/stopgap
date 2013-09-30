@@ -38,10 +38,10 @@
             ng-class="format == 'Text' && 'active'">Text</span>
     </div>
     <div class="panel copybox">
-      <div class="panel attrib" id="web-attr" ng-class="format != 'HTML' && 'hide'">
+      <div class="panel attrib" id="web-attr" ng-show="format != 'HTML'">
         <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}"><img alt="Creative Commons License" style="border-width:0" src="{{license.iconUrl}}" /></a><br />This work is licensed under a <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}">{{license.title}} License</a>.
       </div>
-      <div class="panel attrib" id="text-attr" ng-class="format != 'Text' && 'hide'">
+      <div class="panel attrib" id="text-attr" ng-show="format != 'Text'">
         This work is licensed under the {{license.title}} License. To view a copy of this license, visit creativecommons.org/licenses.
       </div>
       <div class="text-center">
@@ -53,23 +53,109 @@
 
 <div id="jurisdiction-dialog" class="reveal-modal">
   <h2></h2>
-  <p>A jurisdiction is ... blah blah</p>
-  <p>and a grid/list to choose from</p>
+  <p>Short blurb about default licenses working internationally</p>
+  <p>and a grid/list of countries to choose from for those with
+  specific needs</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="terms-dialog" class="reveal-modal">
-  <h2>License Restrictions</h2>
-  <p>Choose between CC0, BY-NC, etc.</p>
-  <ul>
-    <li>Waive all rights (place this work in the public domain)</li>
-    <li>Allow commercial uses</li>
-    <li>Allow derived works</li>
-    <li>Require derived works to use the same license</li>
-  </ul>
+  <h2>License Terms</h2>
+
+  <h5 class="subheader">Waive all rights (place in the public domain), or retain some rights on the work?</h5>
+  <div class="row" ng-show="termsQ > 1">
+    <div class="large-11 large-offset-1 columns">
+      <h5>Answer to question 1</h5>
+    </div>
+  </div>
+  <div class="row" ng-show="termsQ == 1">
+    <div class="large-8 large-centered columns">
+      <ul class="button-group even-2 radius">
+        <li><a class="button small" ng-click="waive()">Waive all rights</a></li>
+        <li><a class="button small" ng-click="retain()">Retain copyright and require attribution</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h5 class="subheader" ng-show="termsQ >= 2">Allow modified versions (derivatives) of your work to be created?</h5>
+  <div class="row" ng-show="termsQ > 2">
+    <div class="large-11 large-offset-1 columns">
+      <h5>Answer to question 2</h5>
+    </div>
+  </div>
+  <div class="row" ng-show="termsQ == 2">
+    <div class="large-8 large-centered columns">
+      <ul id="terms-derivatives" class="button-group even-3 radius">
+        <li><a class="button small" ng-click="allowDerivatives()">Allow</a></li>
+        <li><a class="button small" ng-click="shareAlike()">Under the same terms as your work</a></li>
+        <li><a class="button small" ng-click="disallowDerivatives()">Do not allow</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h5 class="subheader" ng-show="termsQ >= 3">Allow commercial uses of your work?</h5>
+  <div class="row" ng-show="termsQ > 3">
+    <div class="large-11 large-offset-1 columns">
+      <h5>Answer to question 3</h5>
+    </div>
+  </div>
+  <br />
+  <h5 ng-show="termsQ > 3"><span class="subheader">Selected license:</span> Creative Commons Something or Other 43 1/2 Intergalactic</h5>
+  <a class="button" href="" ng-click="resetTermsDialog()" ng-show="termsQ > 3">Try again</a>
+<a class="button" href="" ng-click="closeTermsDialog()" ng-show="termsQ > 3">Close</a>
+  <div class="row" ng-show="termsQ == 3">
+    <div class="large-8 large-centered columns">
+      <ul class="button-group even-2 radius">
+        <li><a class="button small" ng-click="allowCommercial()">Allow</a></li>
+        <li><a class="button small" ng-click="disallowCommercial()">Do not allow</a></li>
+      </ul>
+    </div>
+  </div>
+
+<!--
+  <div id="row">
+    <label>Basic rights</label>
+    <div class="switch-toggle alert-box secondary radius">
+      <input id="waive-rights" ng-model="terms.waive" value="waive" type="radio">
+      <label for="waive-rights">Waive all rights</label>
+
+      <input id="retain-rights" ng-model="terms.waive" value="retain" type="radio">
+      <label for="retain-rights">Retain copyright and require attribution</label>
+
+      <a class="button radius"></a>
+    </div>
+  </div>
+  <div id="row" ng-class="terms.waive == 'waive' && 'hide'">
+    <label>Derivative Works</label>
+    <div class="switch-toggle switch-3 alert-box secondary radius">
+      <input id="derivatives-allow" ng-model="terms.derivatives" value="allow" type="radio">
+      <label for="derivatives-allow">Allow</label>
+
+      <input id="derivatives-sharealike" ng-model="terms.derivatives" value="sharealike" type="radio">
+      <label for="derivatives-sharealike">Under the same terms as your work</label>
+
+      <input id="derivatives-disallow" ng-model="terms.derivatives" value="disallow" type="radio">
+      <label for="derivatives-disallow">Do not allow</label>
+
+      <a class="button radius"></a>
+    </div>
+  </div>
+  <div id="row" ng-class="terms.waive == 'waive' && 'hide'">
+    <label>Commercial uses</label>
+    <div class="switch-toggle alert-box secondary radius">
+      <input id="commercial-allow" ng-model="terms.commercial" value="allow" type="radio">
+      <label for="commercial-allow">Allow</label>
+
+      <input id="commercial-disallow" ng-model="terms.commercial" value="disallow" type="radio">
+      <label for="commercial-disallow">Do not allow</label>
+
+      <a class="button radius"></a>
+    </div>
+  </div>
+-->
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <script>
-//  $('#add-work-details-dialog').foundation('reveal', 'open');
+  $('#terms-dialog').foundation('reveal', 'open');
 </script>

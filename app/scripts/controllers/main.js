@@ -9,5 +9,30 @@ angular.module('foobarApp')
       iconUrl: 'http://i.creativecommons.org/l/by/3.0/80x15.png',
       title: 'Creative Commons Attribution 3.0 Unported'
     };
+    $scope.termsQ = 1;
+    $scope.waive = function() {
+      $scope.termsQ = 2;
+    };
+    $scope.retain = function() {
+      $scope.termsQ = 2;
+    };
+    $scope.allowDerivatives = function() {
+      $scope.termsQ = 3;
+    };
+    $scope.shareAlike = function() {
+      $scope.termsQ = 3;
+    };
+    $scope.allowCommercial = function() {
+      $scope.termsQ = 4;
+    };
+    $scope.disallowCommercial = function() {
+      $scope.termsQ = 4;
+    };
+    $scope.resetTermsDialog = function() {
+      $scope.termsQ = 1;
+    };
+    $scope.closeTermsDialog = function() {
+      $('#terms-dialog').foundation('reveal', 'close');
+    };
   });
 

@@ -14,10 +14,6 @@ $cc-green: shade(#fff, 5%); //#98C807; omg my eyes hurt
 $header-text-color: black;
 $footer-text-color: $header-text-color;
 
-.hide {
-  display: none;
-}
-
 .header { @include grid-row; @include panel;
   background-color: $cc-green;
   & > h1 {
@@ -104,4 +100,8 @@ $copybox-inactive-tab-bg: shade(#fff, 2%);
 .copybox .attrib {
   @include border-radius(0.2em);
   background-color: shade(#fff, 2%);
+}
+
+#terms-dialog li .button {
+  height: 3.5em;
 }

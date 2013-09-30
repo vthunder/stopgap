@@ -8,7 +8,8 @@
     "foundation": "~4.3.1",
     "i18next": "~1.7.0",
     "ng-i18next": "~0.2.6",
-    "jquery": "~2.0.3"
+    "jquery": "~2.0.3",
+    "css-toggle-switch": "~2.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",
