@@ -36,10 +36,10 @@
       <span class="copybox-tab" ng-click="format='Text'" ng-class="format == 'Text' && 'active'">Text</span>
     </div>
     <div class="panel copybox">
-      <div class="panel attrib" id="web-attr" ng-show="format != 'HTML'">
+      <div class="panel attrib" id="web-attr" ng-show="format == 'HTML'">
         <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}"><img alt="Creative Commons License" style="border-width:0" src="{{license.iconUrl}}"></a><br>This work is licensed under a <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}">{{license.title}} License</a>.
       </div>
-      <div class="panel attrib" id="text-attr" ng-show="format != 'Text'">
+      <div class="panel attrib" id="text-attr" ng-show="format == 'Text'">
         This work is licensed under the {{license.title}} License. To view a copy of this license, visit creativecommons.org/licenses.
       </div>
       <div class="text-center">
