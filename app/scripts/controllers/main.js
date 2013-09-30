@@ -37,8 +37,9 @@ angular.module('foobarApp')
       $('#terms-dialog').foundation('reveal', 'close');
     };
 
-    var clip = new ZeroClipboard($("#copy-button"),
-                                 {moviePath: "/bower_components/zeroclipboard/ZeroClipboard.swf"});
+    var clip = new ZeroClipboard(
+      $('#copy-button'),
+      { moviePath: '/bower_components/zeroclipboard/ZeroClipboard.swf' });
     clip.on('dataRequested', function (client) {
       if ($scope.format == 'HTML') {
         client.setText($('#web-attr').html());
