@@ -75,7 +75,7 @@ angular.module('foobarApp')
           $scope.nd = true;
         }
       } else {
-        console.log("Unknown term: " + term);
+        console.log('Unknown term: ' + term);
       }
     };
 
