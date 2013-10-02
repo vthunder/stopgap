@@ -11,28 +11,74 @@ angular.module('foobarApp')
       iconUrl: 'http://i.creativecommons.org/l/by/3.0/80x15.png',
       title: 'Creative Commons Attribution 3.0 Unported'
     };
-    $scope.termsQ = 1;
-    $scope.waive = function() {
-      $scope.termsQ = 2;
+
+    // default selections (CC BY)
+    $scope.waive = false;
+    $scope.by = true;
+    $scope.nc = false;
+    $scope.sa = false;
+    $scope.nd = false;
+
+    $scope.toggle = function(term) {
+      if (term === 'waive') {
+        if ($scope.waive) {
+          $scope.waive = false;
+          $scope.by = true;
+          $scope.nc = false;
+          $scope.sa = false;
+          $scope.nd = false;
+        } else {
+          $scope.waive = true;
+          $scope.by = false;
+          $scope.nc = false;
+          $scope.sa = false;
+          $scope.nd = false;
+        }
+      } else if (term === 'by') {
+        if ($scope.by) {
+          $scope.waive = true;
+          $scope.by = false;
+          $scope.nc = false;
+          $scope.sa = false;
+          $scope.nd = false;
+        } else {
+          $scope.waive = false;
+          $scope.by = true;
+        }
+      } else if (term === 'nc') {
+        if ($scope.waive) { return; }
+        if ($scope.nc) {
+          $scope.nc = false;
+        } else {
+          $scope.waive = false;
+          $scope.by = true;
+          $scope.nc = true;
+        }
+      } else if (term === 'sa') {
+        if ($scope.waive) { return; }
+        if ($scope.sa) {
+          $scope.sa = false;
+        } else {
+          $scope.waive = false;
+          $scope.by = true;
+          $scope.sa = true;
+          $scope.nd = false;
+        }
+      } else if (term === 'nd') {
+        if ($scope.waive) { return; }
+        if ($scope.nd) {
+          $scope.nd = false;
+        } else {
+          $scope.waive = false;
+          $scope.by = true;
+          $scope.sa = false;
+          $scope.nd = true;
+        }
+      } else {
+        console.log("Unknown term: " + term);
+      }
     };
-    $scope.retain = function() {
-      $scope.termsQ = 2;
-    };
-    $scope.allowDerivatives = function() {
-      $scope.termsQ = 3;
-    };
-    $scope.shareAlike = function() {
-      $scope.termsQ = 3;
-    };
-    $scope.allowCommercial = function() {
-      $scope.termsQ = 4;
-    };
-    $scope.disallowCommercial = function() {
-      $scope.termsQ = 4;
-    };
-    $scope.resetTermsDialog = function() {
-      $scope.termsQ = 1;
-    };
+
     $scope.closeTermsDialog = function() {
       $('#terms-dialog').foundation('reveal', 'close');
     };
@@ -47,5 +93,6 @@ angular.module('foobarApp')
         client.setText($('#text-attr').html());
       }
     });
-  });
 
+// for hacking    $('#terms-dialog').foundation('reveal', 'open');
+  });

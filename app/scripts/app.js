@@ -15,16 +15,13 @@ angular.module('jm.i18next')
     };
   }]);
 
-angular.module('foobarApp', ['jm.i18next'])
+angular.module('foobarApp', ['ngRoute', 'jm.i18next'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', { templateUrl: 'views/main.html', controller: 'MainCtrl' })
-      .when('/url', { templateUrl: 'views/url.html', controller: 'UrlCtrl' })
-      .when('/confirm', { templateUrl: 'views/confirm.html', controller: 'ConfirmCtrl' })
       .otherwise({ redirectTo: '/' });
   });
 
 $(document).ready(function() {
   $(document).foundation();
-  
 });

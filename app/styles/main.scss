@@ -9,6 +9,8 @@ $fontAwesomePath: "fonts";
 
 // Compass helpers
 @import "compass/css3";
+@import "compass/css3/opacity";
+@import "compass/css3/filter";
 
 $cc-green: shade(#fff, 5%); //#98C807; omg my eyes hurt
 $header-text-color: black;
@@ -105,6 +107,21 @@ $copybox-inactive-tab-bg: shade(#fff, 2%);
 .zeroclipboard-is-hover { @extend .button:hover; }
 .zeroclipboard-is-active { @extend .button:active; }
 
-#terms-dialog li .button {
-  height: 3.5em;
+#terms-block {
+  @include block-grid(5, 0, true);
+  & > li {
+    @include panel;
+    @include opacity(0.35);
+    height: 20em;
+    text-align: center;
+  }
+  & > .selected {
+    @include opacity(1);
+    position: relative;
+    top: -0.625em;
+  }
+
+  & > .blur {
+    @include filter(blur(3px));
+  }
 }
