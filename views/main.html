@@ -60,59 +60,31 @@
 <div id="terms-dialog" class="reveal-modal">
   <h2>License Terms</h2>
 
-  <h5 class="subheader">Waive all rights (place in the public domain), or retain some rights on the work?</h5>
-  <div class="row" ng-show="termsQ > 1">
-    <div class="large-11 large-offset-1 columns">
-      <h5>Answer to question 1</h5>
-    </div>
-  </div>
-  <div class="row" ng-show="termsQ == 1">
-    <div class="large-8 large-centered columns">
-      <ul class="button-group even-2 radius">
-        <li><a class="button small" ng-click="waive()">Waive all rights</a></li>
-        <li><a class="button small" ng-click="retain()">Retain copyright and require attribution</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <h5 class="subheader" ng-show="termsQ >= 2">Allow modified versions (derivatives) of your work to be created?</h5>
-  <div class="row" ng-show="termsQ > 2">
-    <div class="large-11 large-offset-1 columns">
-      <h5>Answer to question 2</h5>
-    </div>
-  </div>
-  <div class="row" ng-show="termsQ == 2">
-    <div class="large-8 large-centered columns">
-      <ul id="terms-derivatives" class="button-group even-3 radius">
-        <li><a class="button small" ng-click="allowDerivatives()">Allow</a></li>
-        <li><a class="button small" ng-click="shareAlike()">Under the same terms as your work</a></li>
-        <li><a class="button small" ng-click="disallowDerivatives()">Do not allow</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <h5 class="subheader" ng-show="termsQ >= 3">Allow commercial uses of your work?</h5>
-  <div class="row" ng-show="termsQ > 3">
-    <div class="large-11 large-offset-1 columns">
-      <h5>Answer to question 3</h5>
-    </div>
-  </div>
-  <br>
-  <h5 ng-show="termsQ > 3"><span class="subheader">Selected license:</span> Creative Commons Something or Other 43 1/2 Intergalactic</h5>
-  <a class="button" href="" ng-click="resetTermsDialog()" ng-show="termsQ > 3">Try again</a>
-<a class="button" href="" ng-click="closeTermsDialog()" ng-show="termsQ > 3">Close</a>
-  <div class="row" ng-show="termsQ == 3">
-    <div class="large-8 large-centered columns">
-      <ul class="button-group even-2 radius">
-        <li><a class="button small" ng-click="allowCommercial()">Allow</a></li>
-        <li><a class="button small" ng-click="disallowCommercial()">Do not allow</a></li>
-      </ul>
-    </div>
-  </div>
-
+  <ul id="terms-block">
+    <li ng-click="toggle('waive')" ng-class="{selected: waive}">
+      <img class="terms-icon" src="http://mirrors.creativecommons.org/presskit/icons/zero.svg">
+      <h6>Waive Copyright</h6>
+      <p>Place your work in the public domain without any restrictions</p>
+    </li>
+    <li ng-click="toggle('by')" ng-class="{selected: by}">
+      <img class="terms-icon" src="http://mirrors.creativecommons.org/presskit/icons/by.svg">
+      <h6>Attribution</h6>
+      <p>Require that you get credited for your work</p>
+    </li><li ng-click="toggle('nc')" ng-class="{selected: nc, blur: waive}">
+      <img class="terms-icon" src="http://mirrors.creativecommons.org/presskit/icons/nc.svg">
+      <h6>Non-commercial</h6>
+      <p>Do not allow commercial uses of your work</p>
+    </li>
+    <li ng-click="toggle('sa')" ng-class="{selected: sa, blur: waive}">
+      <img class="terms-icon" src="http://mirrors.creativecommons.org/presskit/icons/sa.svg">
+      <h6>Share-alike</h6>
+      <p>Require works based on your work to be released under the same terms</p>
+    </li>
+    <li ng-click="toggle('nd')" ng-class="{selected: nd, blur: waive}">
+      <img class="terms-icon" src="http://mirrors.creativecommons.org/presskit/icons/nd.svg">
+      <h6>No derivatives</h6>
+      <p>Do not allow works based on your work</p>
+    </li>
+  </ul>
   <a class="close-reveal-modal">&#215;</a>
 </div>
-
-<script>
-//  $('#terms-dialog').foundation('reveal', 'open');
-</script>
