@@ -53,6 +53,7 @@ html, body { height: 100%; }
 }
 
 #terms-button {
+  float: right;
   margin-bottom: 0;
 }
 
@@ -64,7 +65,6 @@ html, body { height: 100%; }
   font-size: 1.5em;
   height: 1.5em;
   margin: 0.25em;
-  margin-bottom: 1.5em;
   padding: 0;
   text-align: center;
   vertical-align: middle;
@@ -99,47 +99,55 @@ $copybox-inactive-tab-bg: shade(#fff, 2%);
   border-bottom: 1px solid $copybox-bg;
 }
 
-.copybox .attrib {
+#web-attr, #text-attr {
+/*  padding: 0.5em;*/
+}
+.attrib {
   @include border-radius(0.2em);
   background-color: shade(#fff, 2%);
+  border: 1px solid lightgray;
+  padding: 0.5em;
 }
 
 .zeroclipboard-is-hover { @extend .button:hover; }
 .zeroclipboard-is-active { @extend .button:active; }
 
-#terms-block {
-  @include block-grid(1, 0, true);
-  @media #{$small} { @include block-grid(5, 0, true); }
+.large-term-box {
+  @include panel;
+  position: relative;
+  height: 16em;
+  margin-bottom: 0.25em;
+  text-align: center;
+  width: 12em;
 
-  & > li {
-    @include panel;
-    @include opacity(0.35);
-    @media #{$small} {
-      height: 20em;
-      text-align: center;
-    }
+  &.selected {
+    background-color: #2bcb50;
   }
 
-  & > .selected {
-    @include opacity(1);
-    position: relative;
-    left: 0.625em;
-    @media #{$small} {
-      left: auto;
-      top: -0.625em;
-    }
+  &.disabled {
+    @include opacity(0.45);
+    @include filter(blur(1px));
   }
 
-  & > .blur {
-    @include filter(blur(3px));
+  & > .term-chk {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
   }
 
-  & > li img {
-    height: 1em;
-    width: 1em;
-    @media #{$small} {
-      height: 3em;
-      width: 3em;
-    }
+  & > img {
+    width: 4em;
   }
+}
+.medium-term-box {
+  @extend .large-term-box;
+  height: 12em;
+  width: 12em;
+  & > img {
+    width: 3em;
+  }
+}
+
+.nobr {
+  white-space: nowrap;
 }

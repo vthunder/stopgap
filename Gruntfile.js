@@ -252,6 +252,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
+            '.nojekyll',
             'assets/**/*',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',

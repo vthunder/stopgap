@@ -1,48 +1,49 @@
 <div class="row">
-  <div class="large-8 large-offset-1 columns">
-    <h5 class="subheader">Using a Creative Commons license on your work is easy! Just follow these steps:</h5><br />
-  </div>
-</div>
-
-<div class="row">
-  <div class="large-10 large-centered columns">
-    <div class="large-4 columns">
+  <div class="large-6 large-centered columns">
+    <div class="row">
+      <h5 class="subheader">Using a Creative Commons license on your work is easy! Just follow these steps:</h5>
+    </div>
+    <div class="row">
       <h5>
         <div class="header-number">1</div>
         <span class="subheader"><a href="//creativecommons.org/licenses/" target="_blank">Learn</a> about our licenses so you understand how they work.</span>
       </h5>
-      <br />
     </div>
-    <div class="large-4 columns">
+    <div class="row">
       <h5>
         <div class="header-number">2</div>
-        <span class="subheader">Choose specific <a id="terms-button" href="" class="button tiny radius" data-reveal-id="terms-dialog">license terms</a> that work for you.</span>
+        <span class="subheader">Choose what others can do with your work.</span>
       </h5>
-      <br />
     </div>
-    <div class="large-4 columns">
+    <div class="row">
+      <div class="large-10 large-centered columns panel">
+        <h6>Selected License: <span class="subheader">{{license.shortTitle}}</span></h6>
+        <p>
+          Allows x, y, z, and requires a, b, c.
+          <a id="terms-button" href="" class="button tiny radius" data-reveal-id="terms-dialog">Change...</a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
       <h5>
         <div class="header-number">3</div>
-        <span class="subheader">Copy and paste from below into your documents:</span>
+        <span class="subheader">Paste this into your documents or Web pages:</span>
       </h5>
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="large-5 large-centered columns">
-    <div class="copybox-tabs">
-      <span class="copybox-tab" ng-click="format='HTML'"
-            ng-class="format == 'HTML' && 'active'">HTML</span>
-      <span class="copybox-tab" ng-click="format='Text'"
-            ng-class="format == 'Text' && 'active'">Text</span>
-    </div>
-    <div class="panel copybox">
-      <div class="panel attrib" id="web-attr" ng-show="format == 'HTML'">
-        <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}"><img alt="Creative Commons License" style="border-width:0" src="{{license.iconUrl}}" /></a><br />This work is licensed under a <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}">{{license.title}} License</a>.
-      </div>
-      <div class="panel attrib" id="text-attr" ng-show="format == 'Text'">
-        This work is licensed under the {{license.title}} License. To view a copy of this license, visit creativecommons.org/licenses.
+    <div class="row">
+      <div class="large-10 large-centered columns">
+        <div class="copybox-tabs">
+          <span class="copybox-tab" ng-click="format='HTML'"
+                ng-class="format == 'HTML' && 'active'">HTML</span>
+          <span class="copybox-tab" ng-click="format='Text'"
+                ng-class="format == 'Text' && 'active'">Text</span>
+        </div>
+        <div class="panel" id="web-attr" ng-show="format == 'HTML'">
+          <div class="attrib"><a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}"><img alt="Creative Commons License" style="border-width:0" src="{{license.iconUrl}}" /></a><br />This work is licensed under a <a rel="license" href="{{license.deedUrl}}deed.{{license.lang}}">{{license.title}} License</a>.</div>
+        </div>
+        <div class="panel" id="text-attr" ng-show="format == 'Text'">
+          <div class="attrib">This work is licensed under the {{license.title}} License,  {{license.shortUrl}}</div>
+        </div>
       </div>
       <div class="text-center">
         <a id="copy-button" href="" class="button radius">Copy {{format}}</a>
@@ -62,31 +63,66 @@
 <div id="terms-dialog" class="reveal-modal">
   <h2>License Terms</h2>
 
-  <ul id="terms-block">
-    <li ng-click="toggle('waive')" ng-class="{selected: waive}">
-      <img src="http://mirrors.creativecommons.org/presskit/icons/zero.svg">
-      <h6>Waive Copyright</h6>
-      <p>Place your work in the public domain without any restrictions</p>
-    </li>
-    <li ng-click="toggle('by')" ng-class="{selected: by}">
-      <img src="http://mirrors.creativecommons.org/presskit/icons/by.svg">
-      <h6>Attribution</h6>
-      <p>Require that you get credited for your work</p>
-    <li ng-click="toggle('nc')" ng-class="{selected: nc, blur: waive}">
-      <img src="http://mirrors.creativecommons.org/presskit/icons/nc.svg">
-      <h6>Non-commercial</h6>
-      <p>Do not allow commercial uses of your work</p>
-    </li>
-    <li ng-click="toggle('sa')" ng-class="{selected: sa, blur: waive}">
-      <img src="http://mirrors.creativecommons.org/presskit/icons/sa.svg">
-      <h6>Share-alike</h6>
-      <p>Require works based on your work to be released under the same terms</p>
-    </li>
-    <li ng-click="toggle('nd')" ng-class="{selected: nd, blur: waive}">
-      <img src="http://mirrors.creativecommons.org/presskit/icons/nd.svg">
-      <h6>No derivatives</h6>
-      <p>Do not allow works based on your work</p>
-    </li>
-  </ul>
+  <form>
+    <div class="row">
+      <div class="large-6 small-12 small-centered columns">
+        <ul class="small-block-grid-2">
+          <li>
+            <label class="large-term-box" ng-class="{selected: waive}" for="waive-chk">
+              <input type="checkbox" class="term-chk" id="waive-chk" ng-model="waive">
+              <img src="http://mirrors.creativecommons.org/presskit/icons/zero.svg">
+              <h6 class="subheader"><span class="nobr">Waive Copyright</span></h6>
+              <p>Place your work in the public domain without any restrictions</p>
+            </label>
+          </li>
+          <li>
+            <label class="large-term-box" ng-class="{selected: by}" for="by-chk">
+              <input type="checkbox" class="term-chk" id="by-chk" ng-model="by">
+              <img src="http://mirrors.creativecommons.org/presskit/icons/by.svg">
+              <h6 class="subheader">Attribution</h6>
+              <p>Require that you get credited for your work</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-8 small-12 small-centered columns">
+        <ul class="small-block-grid-3">
+          <li>
+            <label for="nc-chk"
+                   class="medium-term-box" ng-class="{selected: nc, disabled: waive}">
+              <input type="checkbox" class="term-chk" id="nc-chk"
+                     ng-model="nc" ng-disabled="waive">
+              <img src="http://mirrors.creativecommons.org/presskit/icons/nc.svg">
+              <h6 class="subheader"><span class="nobr">Non-Commercial</span></h6>
+              <p>Do not allow commercial uses of your work</p>
+            </label>
+          </li>
+          <li>
+            <label for="sa-chk"
+                   class="medium-term-box" ng-class="{selected: sa, disabled: waive}">
+              <input type="checkbox" class="term-chk" id="sa-chk"
+                     ng-model="sa" ng-disabled="waive">
+              <img src="http://mirrors.creativecommons.org/presskit/icons/sa.svg">
+              <h6 class="subheader">Share Alike</h6>
+              <p>Works based on yours must use the same terms</p>
+            </label>
+          </li>
+          <li>
+            <label for="nd-chk"
+                   class="medium-term-box" ng-class="{selected: nd, disabled: waive}">
+              <input type="checkbox" class="term-chk" id="nd-chk"
+                     ng-model="nd" ng-disabled="waive">
+              <img src="http://mirrors.creativecommons.org/presskit/icons/nd.svg">
+              <h6 class="subheader">No Derivatives</h6>
+              <p>Do not allow other works based on yours</p>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+  <div class="text-right"><a class="button" ng-click="closeTermsDialog()">Close</a></div>
   <a class="close-reveal-modal">&#215;</a>
 </div>
