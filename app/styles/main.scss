@@ -61,7 +61,7 @@ html, body { height: 100%; }
   @include border-radius(50%);
   background-color: shade(#fff, 20%);
   color: white;
-  float: left;
+  display: inline-block;
   font-size: 1.5em;
   height: 1.5em;
   margin: 0.25em;
