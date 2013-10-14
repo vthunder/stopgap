@@ -66,6 +66,11 @@ angular.module('foobarApp')
       } else {
         client.setText($('#text-attr .attrib').html());
       }
+      var currentTxt = $('#copy-button').html();
+      $('#copy-button').html('Copied!');
+      setTimeout(function() {
+        $('#copy-button').html(currentTxt);
+      }, 2000);
     });
 
 // for hacking    $('#terms-dialog').foundation('reveal', 'open');
